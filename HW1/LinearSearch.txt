@@ -1,0 +1,31 @@
+Linear Search Algorithm
+Adam Roy
+CSCI 242
+Assignment 1
+
+array -> [x, y, z...] #inialize array of values 
+i -> 0 #initialize increment number
+searchVal -> val #the value we are searching for
+
+while i <= length of array:
+    if array at index i = searchVal:
+        print(value was found)
+    break
+
+    else:
+        print(value was not found)
+
+    i += 1 #increment value up by 1 to search next element in array
+
+Time Complexity:
+array init     -> f(x) = 1
+i init         -> f(x) = 1
+searchVal init -> f(x) = 1
+while loop     -> f(x) = n
+if else        -> f(x) = 1
+i increment    -> f(x) = 1
+
+f(x) = 5 + n -> O(n)
+
+Linear search algorithm runs on O(n) time.
+

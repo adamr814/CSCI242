@@ -1,0 +1,108 @@
+//Function 1
+void function(int n)
+{
+    int count = 0;
+    for (int i = n/2; i <= n; i++)
+        for (int j = 1; j <= n; j = 2*j)
+            for (int k = 1; k<=n; k = k * 2)
+                count++;
+}
+for (int i = n/2; i <= n; i++) -> n/2
+    trace i -> 1/2, 1, 3/2, 2, 5/2   -> n=1/2
+
+for (int j = 1; j <= n; j = 2*j) -> log2(n)
+    trace j -> 1, 2, 4, 8, 16 -> 2^j -> n=2^j -> j = log2(n)
+
+for (int k = 1; k<=n; k = k * 2) -> log2(n)
+    trace k -> 1, 2, 4, 8, 16 -> 2^k -> n=2^k -> k = log2(n)
+
+f(n) = n/2 * log2(n) * log2(n) 
+-> n/2 * (log2(n))^2 
+-> n(log2(n))^2 
+-> O(n(log2(n))^2)
+
+
+// Function 2
+void function(int n)
+{
+    int count = 0;
+    for(int i = n/2; i <= n; i++)
+        for (int j = 1; j + n/2 <= n; j = j++)
+            for (int k = 1; k <= n; k = k * 2)
+                count ++;
+}
+for(int i = n/2; i <= n; i++) -> n/2
+    trace i -> 1/2, 1, 3/2, 2, 5/2 -> f(n) = n*1/2
+
+for (int j = 1; j + n/2 <= n; j = j++)
+    trace j -> 1/2, 1, 3/2, 2, 5/2 -> f(n) = n*1/2
+
+for (int k = 1; k <= n; k = k * 2) -> f(n) = log2(n)
+    trace k -> 1, 2, 4, 8, 16 -> log2(n)
+
+f(n) = n/2 * n/2 * log2(n)
+-> n^2/4 * log2(n)
+-> n^2(log2(n))/4
+-> n^2(log2(n))
+-> n^2
+-> O(n^2)
+
+//Function 3 *triangular number sequence
+
+void function(int n)
+{
+    int i = 1, s = 1;
+    while (s <= n)
+    {
+        i++;
+        s+= i;
+        printf("*");
+    }
+}
+
+(sum of n while n=1) = 1 + 2 + 3 + s -> s = s(s+1)/2
+solve:
+-> n = s(s+1)/2
+-> 2n = s^2 + s
+-> 2n - s = s^2
+-> sqrt(2n - s) = s
+-> sqrt(2n) = s
+-> O(sqrt(n))
+
+time complexity is big O of square root n
+
+//Function 4
+
+int i, j, y=1;
+y + y + 10;
+
+for(i = 1; i <= n; i++)
+{
+    printf("*");
+}
+
+for(i = 1; i <= n; i++)
+{
+    for(j = 1; j <= n; j++)
+    {
+        printf("*");
+    }
+}
+
+y + y + 10; -> computation of variables = n(1) -> O(1)
+
+for(i = 1; i <= n; i++) -> iteration of a loop of size n -> f(n) = n -> O(n)
+    trace n: 1, 2, 3, 4, n
+
+for(i = 1; i <= n; i++) -> iteration of a loop if size n -> f(n) = n -> O(n)
+    trace n: 1, 2, 3, 4, n
+
+for(j = 1; j <= n; j++) -> iteration of a nested loop of size n -> f(n) = n -> O(n)
+    trace n: 1, 2, 3, 4, n
+
+f(n) = O(1) + O(n) + (O(n) * O(n))
+-> O(1) + O(n) + O(n^2)
+-> O(n) + O(n^2) = n+n^2
+-> O(n^2)
+
+highest power of n is n^2 thus the time complexity of function 4 is O(n^2)
